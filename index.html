@@ -1,0 +1,147 @@
+<html>
+  <head>
+    <title>
+      Windows 7
+    </title>
+    <style>
+        /* Core Layout & Background */
+          * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+          }
+          
+          body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            -webkit-font-smoothing: antialiased;
+          }
+          
+          .boot-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 400px;
+            height: 400px;
+          }
+          
+          /* Logo and Orbs Canvas */
+          .logo-wrapper {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin-bottom: 50px;
+          }
+          
+          /* Individual Orb Baseline Styles */
+          .orb {
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            filter: blur(10px);
+            opacity: 0;
+          }
+          
+          /* Windows Flag Color Coordinates & Glows */
+          .red {
+            background-color: #f25022;
+            box-shadow: 0 0 35px 25px rgba(242, 80, 34, 0.6);
+            /* Top Left flag piece */
+            top: 35px;
+            left: 35px;
+            animation: flyInRed 6s ease-in-out infinite;
+          }
+          
+          .green {
+            background-color: #7fba00;
+            box-shadow: 0 0 35px 25px rgba(127, 186, 0, 0.6);
+            /* Top Right flag piece */
+            top: 35px;
+            right: 35px;
+            animation: flyInGreen 6s ease-in-out infinite;
+          }
+          
+          .blue {
+            background-color: #00a4ef;
+            box-shadow: 0 0 35px 25px rgba(0, 164, 239, 0.6);
+            /* Bottom Left flag piece */
+            bottom: 35px;
+            left: 35px;
+            animation: flyInBlue 6s ease-in-out infinite;
+          }
+          
+          .yellow {
+            background-color: #ffb900;
+            box-shadow: 0 0 35px 25px rgba(255, 185, 0, 0.6);
+            /* Bottom Right flag piece */
+            bottom: 35px;
+            right: 35px;
+            animation: flyInYellow 6s ease-in-out infinite;
+          }
+          
+          /* Keyframe Animations for the 4 converging lights */
+          @keyframes flyInRed {
+            0%   { transform: translate(-120px, -60px) scale(0.3); opacity: 0; filter: blur(5px); }
+            25%  { opacity: 0.8; filter: blur(12px); }
+            45%, 100% { transform: translate(0, 0) scale(1); opacity: 0.9; filter: blur(16px); }
+          }
+          
+          @keyframes flyInGreen {
+            5%   { transform: translate(120px, -60px) scale(0.3); opacity: 0; filter: blur(5px); }
+            30%  { opacity: 0.8; filter: blur(12px); }
+            45%, 100% { transform: translate(0, 0) scale(1); opacity: 0.9; filter: blur(16px); }
+          }
+          
+          @keyframes flyInBlue {
+            10%  { transform: translate(-120px, 60px) scale(0.3); opacity: 0; filter: blur(5px); }
+            35%  { opacity: 0.8; filter: blur(12px); }
+            45%, 100% { transform: translate(0, 0) scale(1); opacity: 0.9; filter: blur(16px); }
+          }
+          
+          @keyframes flyInYellow {
+            15%  { transform: translate(120px, 60px) scale(0.3); opacity: 0; filter: blur(5px); }
+            40%  { opacity: 0.8; filter: blur(12px); }
+            45%, 100% { transform: translate(0, 0) scale(1); opacity: 0.9; filter: blur(16px); }
+          }
+          
+          /* "Starting Windows" Text Reflection Pulse */
+          .loading-text {
+            font-size: 19px;
+            letter-spacing: 0.5px;
+            color: rgba(255, 255, 255, 0.4);
+            /* Gradient text creates the passing sheen/glow effect */
+            background: linear-gradient(to right, #666 30%, #fff 50%, #666 70%);
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shineText 3s linear infinite;
+          }
+          
+          @keyframes shineText {
+            0% { background-position: 200% center; }
+            100% { background-position: -200% center; }
+          }
+
+    </style>
+  </head>
+  <body style="background-color: #000000;">
+     <div class="boot-container">
+        <div class="logo-wrapper">
+          <div class="orb red"></div>
+          <div class="orb green"></div>
+          <div class="orb blue"></div>
+          <div class="orb yellow"></div>
+        </div>
+        <div class="loading-text">
+          Starting Windows
+        </div>
+    </div>
+  </body>
+</html>
