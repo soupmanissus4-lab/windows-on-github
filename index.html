@@ -7,10 +7,7 @@
       const wait = (secondAmount) => new Promise(resolve => setTimeout(resolve, secondAmount * 1000));
       function glidedot(x,y,dotNum){
         
-      }
-      function waitSeconds(seconds){
-        await wait(seconds)
-      }
+      };
       function glidedot(elementId, x, y, duration = 1000) {
         const element = document.getElementById(elementId);
         element.animate([
@@ -21,21 +18,23 @@
           easing: 'ease-in-out',    
           fill: 'forwards'
         });
-      }
+      };
       function changeDotType(elementId,type){
-        
-      }
+        document.getElementById(elementId).attr('src','image ' + type)
+      };
       function loadwindows(){
-        glidedot(dot1,10,10,1000);
-        glidedot(dot2,-10,10,1000);
-        glidedot(dot3,10,-10,1000);
-        glidedot(dot4,-10,-10,1000);
-        waitSeconds(3);
-        changeDotType(dot1,2);
-        changeDotType(dot2,2);
-        changeDotType(dot3,2);
-        changeDotType(dot4,2);
-      }
+        document.getElementById('loadingScreen').css('')
+        glidedot('dot1',10,10,3000);
+        glidedot('dot2',-10,10,3000);
+        glidedot('dot3',10,-10,3000);
+        glidedot('dot4',-10,-10,3000);
+        await wait(3)
+        changeDotType('dot1',2);
+        changeDotType('dot2',2);
+        changeDotType('dot3',2);
+        changeDotType('dot4',2);
+        
+      };
     </script>
   </head>
   <body onload="loadWindows();">
